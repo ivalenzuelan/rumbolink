@@ -3,50 +3,231 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>RumboLink · Soporte</title>
+<title>RumboLink · Navegación y radares en el cuadro de tu moto</title>
+<meta name="description" content="RumboLink lleva la navegación, los radares y la información de conducción del iPhone al cuadro TFT de tu moto. Ayuda, motos compatibles y contacto.">
+<meta name="theme-color" content="#1a2125">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <style>
-  :root { color-scheme: light dark; }
-  body { margin: 0; font: 17px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-         color: #1d1d1f; background: #fff; }
-  main { max-width: 720px; margin: 0 auto; padding: 48px 20px 64px; }
-  h1 { font-size: 32px; line-height: 1.2; margin: 0 0 8px; }
-  h2 { font-size: 20px; margin: 36px 0 8px; }
-  p, li { color: #333; }
-  table { width: 100%; border-collapse: collapse; font-size: 15px; margin: 12px 0; }
-  th, td { text-align: left; vertical-align: top; padding: 10px 8px; border-bottom: 1px solid #e5e5ea; }
-  th { font-weight: 600; color: #1d1d1f; }
-  a { color: #0a6c3f; }
-  @media (prefers-color-scheme: dark) {
-    body { background: #000; color: #f5f5f7; }
-    p, li { color: #d1d1d6; } th { color: #f5f5f7; } th, td { border-color: #38383a; }
-    a { color: #34c759; }
+  :root {
+    color-scheme: light dark;
+    --fondo: #ffffff; --fondo-suave: #f5f3f0; --texto: #1d2327; --texto-suave: #4d575e;
+    --linea: #e3dfda; --acento: #a8452b; --acento-texto: #ffffff; --pizarra: #262f34; --ambar: #daa944;
   }
-  @media (max-width: 560px) { table, thead, tbody, tr, th, td { display: block; }
-    thead { display: none; } td { border: 0; padding: 4px 0; } tr { border-bottom: 1px solid #e5e5ea; padding: 8px 0; } }
+  @media (prefers-color-scheme: dark) {
+    :root { --fondo: #14191c; --fondo-suave: #1d2529; --texto: #f2efeb; --texto-suave: #b4bcc1;
+            --linea: #2f3a40; --acento: #e0835f; --acento-texto: #14191c; }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; font: 17px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+         color: var(--texto); background: var(--fondo); }
+  a { color: var(--acento); }
+  a:focus-visible, summary:focus-visible { outline: 3px solid var(--ambar); outline-offset: 3px; border-radius: 6px; }
+  .ancho { max-width: 860px; margin: 0 auto; padding: 0 22px; }
+
+  header { background: #1a2125; color: #f2efeb; }
+  .cabecera { display: flex; gap: 26px; align-items: center; padding-top: 52px; padding-bottom: 52px; }
+  .cabecera img { width: 112px; height: 112px; border-radius: 25px; flex: none; box-shadow: 0 0 0 1px rgba(255,255,255,.14), 0 10px 30px rgba(0,0,0,.35); }
+  h1 { font-size: 40px; line-height: 1.1; margin: 0 0 10px; letter-spacing: -0.02em; }
+  .lema { font-size: 20px; line-height: 1.4; margin: 0; color: #d5dade; max-width: 34em; }
+  .datos { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 0; padding: 0; list-style: none; }
+  .datos li { font-size: 14px; padding: 4px 12px; border-radius: 999px; border: 1px solid rgba(255,255,255,.22); color: #e6e9eb; }
+
+  main section { padding: 44px 0; border-bottom: 1px solid var(--linea); }
+  main section:last-child { border-bottom: 0; }
+  h2 { font-size: 26px; line-height: 1.25; margin: 0 0 6px; letter-spacing: -0.01em; }
+  .entrada { color: var(--texto-suave); margin: 0 0 22px; max-width: 40em; }
+  p { margin: 0 0 14px; }
+
+  .rejilla { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin: 0; padding: 0; list-style: none; }
+  .rejilla li { background: var(--fondo-suave); border-radius: 16px; padding: 18px 20px; }
+  .rejilla h3 { font-size: 17px; margin: 0 0 4px; }
+  .rejilla p { margin: 0; font-size: 15.5px; color: var(--texto-suave); }
+
+  table { width: 100%; border-collapse: collapse; font-size: 16px; }
+  th, td { text-align: left; vertical-align: top; padding: 12px 10px; border-bottom: 1px solid var(--linea); }
+  th:first-child, td:first-child { width: 32%; }
+  th { font-size: 13px; text-transform: uppercase; letter-spacing: .05em; color: var(--texto-suave); font-weight: 600; }
+  .estado { display: inline-block; font-size: 13px; font-weight: 600; padding: 2px 10px; border-radius: 999px; white-space: nowrap; }
+  .ok { background: #dcefe2; color: #17502c; }
+  .pruebas { background: #f7ebcf; color: #6b4a06; }
+  @media (prefers-color-scheme: dark) { .ok { background: #1d3f2b; color: #a8e0bd; } .pruebas { background: #453610; color: #f0d48a; } }
+
+  ol.pasos { counter-reset: paso; list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+  ol.pasos li { counter-increment: paso; position: relative; padding-left: 52px; min-height: 36px; }
+  ol.pasos li::before { content: counter(paso); position: absolute; left: 0; top: 0; width: 36px; height: 36px; border-radius: 50%;
+                        background: var(--acento); color: var(--acento-texto); font-weight: 700; display: grid; place-items: center; }
+  ol.pasos strong { display: block; }
+  ol.pasos span { color: var(--texto-suave); font-size: 15.5px; }
+
+  details { border-bottom: 1px solid var(--linea); }
+  details:first-of-type { border-top: 1px solid var(--linea); }
+  summary { cursor: pointer; padding: 15px 30px 15px 0; font-weight: 600; list-style: none; position: relative; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: "+"; position: absolute; right: 4px; top: 11px; font-size: 24px; font-weight: 400; color: var(--texto-suave); }
+  details[open] summary::after { content: "–"; }
+  details > div { padding: 0 0 16px; color: var(--texto-suave); max-width: 44em; }
+  details > div p:last-child, details > div ul:last-child { margin-bottom: 0; }
+  details ul { margin: 0 0 14px; padding-left: 22px; }
+
+  .boton { display: inline-block; background: var(--acento); color: var(--acento-texto); text-decoration: none; font-weight: 600;
+           padding: 12px 22px; border-radius: 12px; }
+  .contacto { background: var(--fondo-suave); border-radius: 18px; padding: 24px 26px; }
+  .contacto ul { margin: 0 0 18px; padding-left: 22px; color: var(--texto-suave); }
+  .correo { font-weight: 600; word-break: break-all; }
+
+  footer { background: var(--fondo-suave); color: var(--texto-suave); font-size: 14px; padding: 30px 0 44px; }
+  footer p { margin: 0 0 8px; max-width: 60em; }
+
+  @media (max-width: 600px) {
+    .cabecera { flex-direction: column; align-items: flex-start; gap: 18px; padding-top: 36px; padding-bottom: 36px; }
+    .cabecera img { width: 84px; height: 84px; border-radius: 19px; }
+    h1 { font-size: 32px; } .lema { font-size: 18px; } h2 { font-size: 23px; }
+    main section { padding: 34px 0; }
+    table, tbody, tr, td { display: block; } thead { display: none; }
+    tr { padding: 12px 0; border-bottom: 1px solid var(--linea); } td { border: 0; padding: 2px 0; }
+    th:first-child, td:first-child { width: auto; }
+  }
 </style>
 </head>
-<body><main>
-<h1>RumboLink</h1>
-<p>App para iPhone que muestra navegación, radares e información de conducción en el cuadro TFT de tu moto.
-Está comprobada en la Zontes 125X; en otras motos con el mismo tipo de cuadro funciona «en pruebas».</p>
+<body>
 
-<h2>Soporte</h2>
-<p>Si algo no va bien, escríbenos a <strong>vn.inigo@gmail.com</strong>. Ayuda mucho que digas el modelo y el año
-de la moto, el modelo de iPhone y qué estabas haciendo.</p>
-<p>Si el fallo es con la conexión o la imagen, adjunta el registro: en la pantalla <em>Diagnóstico</em> de la app, el botón de compartir de
-arriba a la derecha. El registro se queda en tu iPhone hasta que tú lo envías.</p>
+<header>
+  <div class="ancho cabecera">
+    <img src="icono.jpg" width="112" height="112" alt="Icono de RumboLink">
+    <div>
+      <h1>RumboLink</h1>
+      <p class="lema">El mapa, los radares y lo que importa de camino, en el cuadro TFT de tu moto. Directo desde el iPhone, sin cables ni aparatos.</p>
+      <ul class="datos">
+        <li>Para iPhone, iOS 16 o posterior</li>
+        <li>Comprobada en la Zontes 125X</li>
+        <li>Sin cuentas ni anuncios</li>
+      </ul>
+    </div>
+  </div>
+</header>
 
-<h2>Preguntas frecuentes</h2>
-<p><strong>¿Con qué motos funciona?</strong> Con cuadros que enseñan un código QR para emparejar el móvil.
-Hoy está comprobada en la Zontes 125X.</p>
-<p><strong>¿Tengo que llevar el iPhone a la vista?</strong> No. Puede ir bloqueado en el bolsillo.</p>
-<p><strong>¿Necesita cuenta o registro?</strong> No. La app no tiene cuentas, anuncios ni seguimiento.</p>
-<p><strong>¿Es una app oficial?</strong> No. RumboLink es independiente y no está afiliada a ningún fabricante
-de motos ni de cuadros.</p>
+<main class="ancho">
 
-<h2>Privacidad</h2>
-<p><a href="privacidad/">Política de privacidad</a></p>
+<section id="que-hace">
+  <h2>Qué hace</h2>
+  <p class="entrada">La cabina de RumboLink se dibuja en el iPhone y se ve en el cuadro de la moto por su propia WiFi. El móvil puede ir bloqueado en el bolsillo.</p>
+  <ul class="rejilla">
+    <li><h3>Navegación giro a giro</h3><p>La siguiente maniobra en grande, la distancia, la calle y la hora de llegada. Recalcula si te sales de la ruta.</p></li>
+    <li><h3>Radares de toda España</h3><p>Fijos, de tramo con tu velocidad media y semáforos con foto-rojo. Solo avisa de lo que tienes delante, también por el casco.</p></li>
+    <li><h3>Aviso de curvas</h3><p>Si llegas rápido a una curva cerrada, el cuadro te dice hacia qué lado, a cuántos metros y lo cerrada que es.</p></li>
+    <li><h3>Arranca y para con la moto</h3><p>Al encender la moto, la cabina aparece sola en el cuadro. Al apagarla, se detiene y apunta dónde la has aparcado.</p></li>
+    <li><h3>Tiempo y gasolina</h3><p>Te avisa si va a llover y te enseña la gasolina 95 más barata cerca, con los precios oficiales.</p></li>
+    <li><h3>Diario de viajes</h3><p>Cada salida se guarda sola en tu iPhone: recorrido, distancia, tiempo, velocidades e inclinación máxima.</p></li>
+  </ul>
+</section>
 
-<p style="margin-top:48px;font-size:14px">© 2026 Iñigo Valenzuela</p>
-</main></body>
+<section id="motos">
+  <h2>Motos compatibles</h2>
+  <p class="entrada">RumboLink está hecha para los cuadros TFT que enseñan un código QR para conectar el móvil por WiFi. Hoy está comprobada en una moto; las demás, en pruebas.</p>
+  <table>
+    <thead><tr><th>Moto</th><th>Estado</th><th>Qué significa</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Zontes 125X</strong></td><td><span class="estado ok">Comprobada</span></td><td>Diseñada y probada en esta moto, con su cuadro de serie.</td></tr>
+      <tr><td><strong>Otras motos con cuadro de QR</strong><br>las que se conectan con la app Carbit Ride</td><td><span class="estado pruebas">En pruebas</span></td><td>La app conecta y te avisa de que tu moto aún no está comprobada. Puede que la imagen no encaje del todo o que el arranque automático no funcione. Si nos envías el registro, la adaptamos.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="empezar">
+  <h2>Empezar</h2>
+  <p class="entrada">Solo hay que emparejar la primera vez.</p>
+  <ol class="pasos">
+    <li><strong>Enseña el QR en el cuadro</strong><span>Con la moto encendida y parada, abre en el cuadro la pantalla de conexión con el móvil.</span></li>
+    <li><strong>Escanéalo con RumboLink</strong><span>En la pestaña Inicio, «Escanear el QR del cuadro». La app guarda la moto y la contraseña de su WiFi.</span></li>
+    <li><strong>Únete a la WiFi del cuadro</strong><span>Pulsa «Unirme». Si iOS no lo permite desde la app, hazlo en Ajustes › Wi‑Fi con la contraseña que te enseña RumboLink.</span></li>
+    <li><strong>Pulsa «Proyectar en el cuadro»</strong><span>La cabina aparece en el cuadro. La próxima vez arrancará sola al encender la moto.</span></li>
+  </ol>
+</section>
+
+<section id="ayuda">
+  <h2>Si algo no va bien</h2>
+  <p class="entrada">Lo más habitual, y cómo resolverlo.</p>
+
+  <details>
+    <summary>La cabina no aparece en el cuadro</summary>
+    <div><ul>
+      <li>Comprueba que el iPhone está en la WiFi del cuadro (Ajustes › Wi‑Fi). Esa red no tiene internet; es normal que iOS lo avise.</li>
+      <li>Si la app dice «Llamando al cuadro», abre en el cuadro su pantalla de conexión con el móvil.</li>
+      <li>Pulsa «Reconectar» en la pestaña Inicio.</li>
+    </ul></div>
+  </details>
+
+  <details>
+    <summary>No arranca sola al encender la moto</summary>
+    <div>
+      <p>El arranque automático usa el Bluetooth del cuadro para saber que la moto está encendida. Necesita:</p>
+      <ul>
+        <li>el Bluetooth del iPhone activado y el permiso de Bluetooth concedido a RumboLink;</li>
+        <li>el permiso de ubicación en «Siempre» (Ajustes › RumboLink › Ubicación): sin él, iOS duerme la app en el bolsillo;</li>
+        <li>«Conectar al abrir la app» y «Arrancar y parar con la moto» activados en Ajustes;</li>
+        <li>haber abierto RumboLink una vez con la moto encendida, para que aprenda su Bluetooth.</li>
+      </ul>
+      <p>Si cierras RumboLink deslizándola en el selector de apps, iOS no la vuelve a despertar hasta que la abras tú.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>El cuadro tapa la parte de abajo de la imagen, o sobra una franja</summary>
+    <div><p>Algunos cuadros pintan sus propios datos sobre la parte inferior de la imagen. Ajusta la altura de esa franja en Ajustes › Cabina › «Panel inferior del cuadro» hasta que la cabina quede justo por encima.</p></div>
+  </details>
+
+  <details>
+    <summary>No salen el tiempo, las gasolineras o los radares</summary>
+    <div><p>La WiFi del cuadro no tiene internet: esos datos llegan por los datos móviles del iPhone. Los radares se descargan solos y después funcionan sin conexión; puedes forzar la descarga en Ajustes › Radares › «Actualizar ahora». En Cataluña y el País Vasco, que tienen tráfico propio, solo aparecen los radares recogidos en OpenStreetMap.</p></div>
+  </details>
+
+  <details>
+    <summary>¿Puedo usar los botones del manillar?</summary>
+    <div><p>En esta versión no: en la Zontes 125X los usa el propio cuadro para sus menús. Las pantallas se cambian desde la app y, si navegas, la cabina vuelve sola al mapa antes de cada giro.</p></div>
+  </details>
+
+  <details>
+    <summary>¿Puedo ver Google Maps o Waze en el cuadro?</summary>
+    <div><p>Sí, con el modo Espejo (Inicio › Más › Espejo), que envía la pantalla del iPhone al cuadro. iOS corta esa emisión al bloquear el iPhone, así que tiene que ir desbloqueado en un soporte. Para llevar el móvil en el bolsillo, usa la cabina de RumboLink.</p></div>
+  </details>
+
+  <details>
+    <summary>¿Necesita cuenta? ¿Qué pasa con mis datos?</summary>
+    <div><p>No hay cuentas, anuncios ni seguimiento, y no tenemos ningún servidor que reciba tus datos. Tus viajes y el aparcamiento se quedan en tu iPhone. El detalle está en la <a href="privacidad/">política de privacidad</a>.</p></div>
+  </details>
+
+  <details>
+    <summary>¿Es la app oficial de mi moto?</summary>
+    <div><p>No. RumboLink es una app independiente y no está afiliada a ningún fabricante de motos ni de cuadros.</p></div>
+  </details>
+</section>
+
+<section id="contacto">
+  <h2>Contacto</h2>
+  <div class="contacto">
+    <p>Escríbenos a <span class="correo">vn.inigo@gmail.com</span>. Para ayudarte a la primera, cuéntanos:</p>
+    <ul>
+      <li>la marca, el modelo y el año de la moto;</li>
+      <li>el modelo de iPhone y la versión de iOS;</li>
+      <li>qué estabas haciendo y qué viste en el cuadro.</li>
+    </ul>
+    <p>Si el fallo es de conexión o de imagen, adjunta el registro: en la app, Ajustes › «Diagnóstico y registro» y el botón de compartir de arriba a la derecha. El registro lleva datos técnicos de la conexión y el nombre de la WiFi del cuadro, no su contraseña, y no sale de tu iPhone hasta que tú lo envías.</p>
+    <p style="margin:18px 0 0"><a class="boton" href="mailto:vn.inigo@gmail.com?subject=RumboLink%3A%20ayuda">Escribir a soporte</a></p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="ancho">
+    <p><a href="privacidad/">Política de privacidad</a></p>
+    <p>Conduce con atención: la señalización y las normas de tráfico mandan siempre. Avisar de radares es legal en España; los detectores, no.</p>
+    <p>RumboLink no está afiliada ni respaldada por Zontes, Carbit ni sus distribuidores. Las marcas son de sus titulares y se citan solo para indicar compatibilidad.</p>
+    <p>© 2026 Iñigo Valenzuela</p>
+  </div>
+</footer>
+
+</body>
 </html>
