@@ -27,12 +27,12 @@
 </head>
 <body><main>
 <h1>Política de privacidad de RumboLink para Android</h1>
-<p>Última actualización: 22 de noviembre de 2026</p>
+<p>Última actualización: 22 de noviembre de 2026 (versión APK con códigos)</p>
 <p>RumboLink es una app para Android que muestra navegación e información de conducción en el cuadro TFT de tu
 moto. Esta política explica qué datos usa, para qué y a dónde van. (La de la app de iPhone está en
 https://ivalenzuelan.github.io/rumbolink/privacidad/.)</p>
 <p><strong>En resumen:</strong> la app no tiene cuentas, ni anuncios, ni analítica, ni seguimiento, y nosotros no tenemos
-ningún servidor que reciba tus datos. Casi todo ocurre en tu móvil.</p>
+ningún servidor que reciba tus datos, salvo el código de activación en la versión APK (ver abajo). Casi todo ocurre en tu móvil.</p>
 <h2>Responsable</h2>
 <p>Iñigo Valenzuela, desarrollador de la app. Contacto: vn.inigo@gmail.com.</p>
 <h2>Qué datos usa la app y para qué</h2>
@@ -100,11 +100,22 @@ para la provincia en la que estás.</p>
 confirmación de la compra y no ve tus datos de pago. La prueba de 7 días se cuenta en el móvil;
 la fecha en que empezó se guarda también con Block Store de Google Play services, para que no se reinicie
 al reinstalar la app.</p>
+<h2>Versión descargada de nuestra web (APK con código de activación)</h2>
+<p>Si instalas RumboLink desde rumbolink.netlify.app en lugar de Google Play, RumboLink Pro se activa con un código
+que te da tu concesionario. Al activarlo, la app envía una sola vez a nuestro servidor de licencias (alojado en
+Netlify) el <strong>código</strong> y una <strong>huella del móvil</strong>: un resumen cifrado (SHA-256) del identificador que Android da a
+la app en tu móvil, del que no se puede sacar el identificador. Guardamos el código, esa huella, la fecha de
+activación y el concesionario que dio el código, para que el código valga para un solo móvil y puedas volver a
+activarlo si reinstalas. No guardamos nada más ni lo cruzamos con otros datos. Esta versión, además, consulta de
+vez en cuando si hay una versión nueva (sin enviar datos tuyos). Si quieres que borremos tu activación,
+escríbenos a vn.inigo@gmail.com con el código.</p>
 <h2>Terceros</h2>
 <ul>
 <li><strong>Mapbox</strong> (búsqueda de destinos y rutas): sujeto a la política de privacidad de Mapbox.</li>
 <li><strong>Open-Meteo</strong> (tiempo): recibe la ubicación redondeada a unos 1 km.</li>
 <li><strong>OpenFreeMap</strong> y <strong>Overpass/OpenStreetMap</strong> (mapa y carreteras): reciben las zonas descargadas y la IP.</li>
+<li><strong>Netlify</strong> (solo en la versión APK): aloja el servidor de licencias; recibe el código y la huella del móvil al
+  activar, y la dirección IP. Sus servidores pueden estar fuera de la UE.</li>
 <li><strong>Google</strong> (Google Play para las compras, ML Kit para el QR, y Google Maps solo si compartes un enlace corto).</li>
 <li><strong>Servicios de datos públicos</strong> (Ayuntamiento de Madrid, DGT, Ministerio para la Transición Ecológica y el
   Reto Demográfico): reciben solo la petición de descarga y la IP.</li>
@@ -121,8 +132,8 @@ desinstalas la app, se borra todo con ella (salvo lo que haya en tu copia de seg
 <h2>Menores</h2>
 <p>La app no está dirigida a menores de 16 años y no recoge datos de nadie.</p>
 <h2>Tus derechos</h2>
-<p>Como no recogemos datos personales en ningún servidor nuestro, no tenemos datos tuyos que consultar,
-corregir o borrar. Si tienes dudas, escríbenos a vn.inigo@gmail.com. También puedes reclamar ante la Agencia
+<p>Fuera de la activación de la versión APK, no recogemos datos personales en ningún servidor nuestro. Para
+consultar o borrar una activación, escríbenos con el código. Si tienes dudas, escríbenos a vn.inigo@gmail.com. También puedes reclamar ante la Agencia
 Española de Protección de Datos (www.aepd.es).</p>
 <h2>Cambios</h2>
 <p>Si esta política cambia, se actualizará esta página y la fecha de arriba.</p>
