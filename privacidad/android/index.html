@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Política de privacidad · RumboLink para Android</title>
+<style>
+  :root { color-scheme: light dark; }
+  body { margin: 0; font: 17px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+         color: #1d1d1f; background: #fff; }
+  main { max-width: 720px; margin: 0 auto; padding: 48px 20px 64px; }
+  h1 { font-size: 32px; line-height: 1.2; margin: 0 0 8px; }
+  h2 { font-size: 20px; margin: 36px 0 8px; }
+  p, li { color: #333; }
+  table { width: 100%; border-collapse: collapse; font-size: 15px; margin: 12px 0; }
+  th, td { text-align: left; vertical-align: top; padding: 10px 8px; border-bottom: 1px solid #e5e5ea; }
+  th { font-weight: 600; color: #1d1d1f; }
+  a { color: #0a6c3f; }
+  @media (prefers-color-scheme: dark) {
+    body { background: #000; color: #f5f5f7; }
+    p, li { color: #d1d1d6; } th { color: #f5f5f7; } th, td { border-color: #38383a; }
+    a { color: #34c759; }
+  }
+  @media (max-width: 560px) { table, thead, tbody, tr, th, td { display: block; }
+    thead { display: none; } td { border: 0; padding: 4px 0; } tr { border-bottom: 1px solid #e5e5ea; padding: 8px 0; } }
+</style>
+</head>
+<body><main>
+<h1>Política de privacidad de RumboLink para Android</h1>
+<p>Última actualización: 22 de noviembre de 2026</p>
+<p>RumboLink es una app para Android que muestra navegación e información de conducción en el cuadro TFT de tu
+moto. Esta política explica qué datos usa, para qué y a dónde van. (La de la app de iPhone está en
+https://ivalenzuelan.github.io/rumbolink/privacidad/.)</p>
+<p><strong>En resumen:</strong> la app no tiene cuentas, ni anuncios, ni analítica, ni seguimiento, y nosotros no tenemos
+ningún servidor que reciba tus datos. Casi todo ocurre en tu móvil.</p>
+<h2>Responsable</h2>
+<p>Iñigo Valenzuela, desarrollador de la app. Contacto: vn.inigo@gmail.com.</p>
+<h2>Qué datos usa la app y para qué</h2>
+<table>
+<thead>
+<tr>
+<th>Dato</th>
+<th>Para qué</th>
+<th>¿Sale del móvil?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Ubicación precisa</strong></td>
+<td>Navegación giro a giro, velocidad y rumbo en el cuadro, avisos de radares y curvas, viaje, diario de viajes y dónde has aparcado. Mientras la cabina está en el cuadro se usa también con la pantalla apagada (servicio en primer plano, con su notificación)</td>
+<td>Solo en estos casos: a <strong>Mapbox</strong>, para buscar destinos y calcular rutas (origen, destino y rumbo); <strong>redondeada a unos 1 km</strong>, a <strong>Open-Meteo</strong> para pedir el tiempo de donde estás y de tu ruta; a <strong>OpenFreeMap</strong>, solo como las zonas de mapa que se descargan para dibujar el mapa; y a <strong>Overpass/OpenStreetMap</strong>, como la zona por la que vas, para conocer las curvas de la carretera</td>
+</tr>
+<tr>
+<td><strong>Diario de viajes y aparcamiento</strong></td>
+<td>Enseñarte tus salidas y llevarte andando hasta la moto</td>
+<td>No. Se guardan solo en el móvil; tú decides si compartes o exportas un viaje, y puedes borrarlos</td>
+</tr>
+<tr>
+<td><strong>Enlaces y direcciones que compartes</strong></td>
+<td>Sacar el destino</td>
+<td>El destino se busca con Mapbox. Un enlace corto de Google Maps se abre para saber a dónde lleva: Google recibe ese enlace y la dirección IP</td>
+</tr>
+<tr>
+<td><strong>Bluetooth y dispositivo asociado</strong></td>
+<td>Saber cuándo enciendes y apagas la moto (por el Bluetooth del cuadro) para conectarse y pararse sola</td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>WiFi del cuadro y dispositivos cercanos</strong></td>
+<td>Conectar con el cuadro de la moto y enviarle la imagen</td>
+<td>Solo al cuadro de tu moto, por su propia red WiFi</td>
+</tr>
+<tr>
+<td><strong>Cámara</strong></td>
+<td>Leer una vez el código QR que muestra el cuadro</td>
+<td>No. La imagen se analiza en el móvil (ML Kit de Google, sin enviar la imagen) y no se guarda</td>
+</tr>
+<tr>
+<td><strong>Acceso a notificaciones</strong></td>
+<td>Saber qué canción suena en tu app de música y controlarla desde el cuadro</td>
+<td>No, salvo el título y el artista al cuadro de tu moto. La app no lee el contenido de otras notificaciones</td>
+</tr>
+<tr>
+<td><strong>Datos de la moto</strong> (nombre y clave de la WiFi del cuadro, modelo, ajustes)</td>
+<td>Volver a conectar sin repetir el emparejamiento</td>
+<td>No. Se guardan solo en el móvil y en la copia de seguridad de Android de tu cuenta de Google, si la tienes activada</td>
+</tr>
+<tr>
+<td><strong>Registros de diagnóstico</strong></td>
+<td>Ayudar a resolver problemas de conexión</td>
+<td>No, salvo que tú los compartas</td>
+</tr>
+</tbody>
+</table>
+<p>La app descarga datos públicos (radares de la DGT, el Ayuntamiento de Madrid y OpenStreetMap, y precios de
+carburantes del Ministerio) <strong>sin enviar tu ubicación</strong>: los radares se piden para toda España y los precios,
+para la provincia en la que estás.</p>
+<h2>Compras</h2>
+<p>RumboLink Pro se compra con Google Play. El pago lo gestiona Google con tu cuenta; la app solo recibe la
+confirmación de la compra y no ve tus datos de pago. La prueba de 7 días se cuenta en el móvil.</p>
+<h2>Terceros</h2>
+<ul>
+<li><strong>Mapbox</strong> (búsqueda de destinos y rutas): sujeto a la política de privacidad de Mapbox.</li>
+<li><strong>Open-Meteo</strong> (tiempo): recibe la ubicación redondeada a unos 1 km.</li>
+<li><strong>OpenFreeMap</strong> y <strong>Overpass/OpenStreetMap</strong> (mapa y carreteras): reciben las zonas descargadas y la IP.</li>
+<li><strong>Google</strong> (Google Play para las compras, ML Kit para el QR, y Google Maps solo si compartes un enlace corto).</li>
+<li><strong>Servicios de datos públicos</strong> (Ayuntamiento de Madrid, DGT, Ministerio para la Transición Ecológica y el
+  Reto Demográfico): reciben solo la petición de descarga y la IP.</li>
+</ul>
+<p>No vendemos ni cedemos datos a nadie. No hay publicidad ni seguimiento.</p>
+<h2>Permisos</h2>
+<p>Puedes retirar cada permiso cuando quieras en Ajustes de Android › Aplicaciones › RumboLink. Sin ubicación no
+hay navegación ni avisos; sin dispositivos cercanos la app no puede conectar con el cuadro; sin Bluetooth y
+dispositivo asociado no arranca sola al encender la moto; sin acceso a notificaciones no se ve la música en
+el cuadro.</p>
+<h2>Conservación y borrado</h2>
+<p>Todo lo que guarda la app está en tu móvil. Puedes borrar cada viaje y el aparcamiento desde la app. Si
+desinstalas la app, se borra todo con ella (salvo lo que haya en tu copia de seguridad de Android).</p>
+<h2>Menores</h2>
+<p>La app no está dirigida a menores de 16 años y no recoge datos de nadie.</p>
+<h2>Tus derechos</h2>
+<p>Como no recogemos datos personales en ningún servidor nuestro, no tenemos datos tuyos que consultar,
+corregir o borrar. Si tienes dudas, escríbenos a vn.inigo@gmail.com. También puedes reclamar ante la Agencia
+Española de Protección de Datos (www.aepd.es).</p>
+<h2>Cambios</h2>
+<p>Si esta política cambia, se actualizará esta página y la fecha de arriba.</p>
+</main></body>
+</html>
